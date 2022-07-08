@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -38,6 +41,11 @@ function App() {
           </a>
         </p>
       </header>
+      <Row className="mx-0">
+        <Button variant="primary">Button #1</Button>
+        <Button variant="secondary" className="mx-2">Button #2</Button>
+        <Button variant="success">Button #3</Button>
+      </Row>
     </div>
   )
 }
