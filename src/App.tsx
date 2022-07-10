@@ -7,11 +7,10 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import UserList from './components/UserList'
+import PostList from './components/PostList'
+import PostCards from './components/PostCards'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
-import 'mdbreact/dist/css/mdb.css';
-import { MDBDataTableV5 } from 'mdbreact';
 
 
 function App() {
@@ -78,7 +77,7 @@ function App() {
     });
 
     // update the state
-    console.log(posts);
+    // console.log(posts);
   };
 
   useEffect(() => {
@@ -96,9 +95,20 @@ function App() {
     getApiData();
   }
 
-  const changeValue = (value) => {
-    console.log(value)
+  var [typeList, setTypeList] = useState("ListView")
+
+  const changeValue = (typeView) => {
+    setTypeList(typeView)
   }
+
+  function PostView() {
+    if (typeList === 'gridView') {
+      return <PostCards items={posts}  />;
+    } else {
+      return <PostList items={posts}  />;
+    }
+  }
+  
 
   return (
     <div className="App">
@@ -142,43 +152,7 @@ function App() {
                 Clear
               </Button>
             </Form>
-            {/* <UserList items={posts}  /> */}
-            <MDBDataTableV5 
-              hover 
-              entriesOptions={[5, 20, 25]}
-              entries={5}
-              // searchTop
-              searching={false}
-              pagesAmount={4} data={{
-                columns: [
-                {
-                  label: 'POSTID',
-                  field: 'postid',
-                  width: 150,
-                  attributes: {
-                    'aria-controls': 'DataTable',
-                    'aria-label': 'PostId',
-                  },
-                },
-                {
-                  label: 'Title',
-                  field: 'title',
-                  width: 150,
-                  attributes: {
-                    'aria-controls': 'DataTable',
-                    'aria-label': 'Title',
-                  },
-                },
-                {
-                  label: 'Body',
-                  field: 'body',
-                  width: 150,
-                  attributes: {
-                    'aria-controls': 'DataTable',
-                    'aria-label': 'Body',
-                  },
-                },
-              ],rows: posts}} />
+            <PostView />
           </Col>
         </Row>
     </Container>
