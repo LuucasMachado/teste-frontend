@@ -1,6 +1,5 @@
 import React, {Fragment, useEffect } from 'react';
 import 'mdbreact/dist/css/mdb.css';
-import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 
@@ -11,19 +10,18 @@ interface IHeaderTable {
 const headerTable: IHeaderTable[] = [
   { title: 'postid' },
   { title: 'title' },
-  // { title: 'author' },
   { title: 'body' },
-  // { title: 'creation date' },
 ]
 
 interface IPosts {
   id: number;
   title: string;
   body: string;
+  map: any; 
 }
 
 interface PostCardProps {
-    items: IPosts
+    items: Array<IPosts>;
 };
 
 const cardsStyle = {
@@ -52,8 +50,8 @@ const PostCard: React.FC<PostCardProps> = ({items}) => {
     return (
         <Fragment>
           <Row>
-            <div className="card-group">
-              {items.map((post, index) => (
+            <div className="d-flex w-100 flex-wrap">
+              {items.map((post:any, index:any) => (
                   <div className="col-3" key={index}>
                     <div className="card m-2" style={cardsStyle}>
                       <div className="card-body">
