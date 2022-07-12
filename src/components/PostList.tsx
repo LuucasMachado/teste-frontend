@@ -26,24 +26,26 @@ interface UserListProps {
 const UserList: React.FC<UserListProps> = ({items}) => {
     return (
         <Fragment>
-            <Table>
+            <Table className='text-center'>
               <thead>
-                {headerTable.map(option => {
-                  return (
-                    <td className='text-uppercase'>{option.title}</td>
-                  );
-                })}
+                <tr className='border'>
+                  {headerTable.map(option => {
+                    return (
+                      <td className='p-2 text-uppercase font-weight-bold font-small'>{option.title}</td>
+                    );
+                  })}
+                </tr>
               </thead>
-              <tbody>
+              <tbody className='border-0'>
                   {items.map((post:any, index:any) => (
-                  <tr key={index}>
-                    <td>
+                  <tr key={post} className='border'>
+                    <td className='p-2 align-middle'>
                       <span>{post.id}</span>
                     </td>
-                    <td>
+                    <td className='w-50 p-2 align-middle'>
                         <span>{post.title}</span>
                     </td>
-                    <td>
+                    <td className='p-2 align-middle'>
                         <span>{post.body}</span>
                     </td>
                   </tr>

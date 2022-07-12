@@ -4,9 +4,9 @@ import Button from 'react-bootstrap/Button';
 
 interface Props {
   searchValue: string;
-  setSearchValue: void;
-  setTypeList: void;
-  getPosts: void;
+  setSearchValue: any;
+  setTypeList: any;
+  getPosts: any;
 }
 
   const Filter: React.FC<Props> = ({searchValue, getPosts, setTypeList, setSearchValue }) => {
@@ -38,7 +38,7 @@ interface Props {
     
     return (
       <Form className='d-flex d-flex align-items-baseline mb-4'>
-        <Form.Group className='w-50 m-3' controlId='formBasicTitle'>
+        <Form.Group className='w-50' controlId='formBasicTitle'>
           <Form.Control type='title' placeholder='Type for search...' value={searchValue} onChange={e => setSearchValue(e.target.value)} />
         </Form.Group>
 
@@ -52,13 +52,14 @@ interface Props {
           })}
         </Form.Select>
 
-        <Button variant='primary'  className='m-1' onClick={handleSearch}>
-          Search
+        <Button variant='primary'  className='m-1 custom-rounded' onClick={handleSearch}>
+          <i className="fa-solid fa-magnifying-glass"></i>
+          <span className="m-2">Search</span>
         </Button>
 
-        <Button variant='light' className='m-1 text-uppercase' onClick={handleClear}>
+        <div role='button' className='m-1 text-uppercase text-primary' onClick={handleClear}>
           Clear
-        </Button>
+        </div>
       </Form>
     );
   }

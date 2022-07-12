@@ -1,0 +1,47 @@
+@import "~bootstrap/scss/functions";
+// @import "~bootstrap/scss/variables";
+
+$primary:  #5C21AA;
+$white: #fff;
+
+$theme-colors: (
+  "primary": $primary,
+);
+
+.btn-primary {
+  background-color: $primary !important;
+}
+
+.custom-rounded {
+  border-radius: 25px !important;
+}
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+.pagination .page-item.active .page-link {
+  background-color: $primary !important;
+  border-radius: 24px;
+}
+
+
+.cardsStyle {
+  width: 257px;
+  height: 280px;
+};
+
+.cardTitle  {
+  height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.cardBody  {
+  margin-top: 20px;
+  height: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+ 
+}
