@@ -35,17 +35,24 @@ interface Props {
         }
       }
       return pageNumbers;
-  };
-  
-    return (
-      <Pagination>
-        <Pagination.Prev onClick={handlePrevPage} />
-          <Fragment>
-            <CustomPagination />
-          </Fragment>
-        <Pagination.Next onClick={handleNextPage} />
-      </Pagination>
-    );
+    };
+
+    if(parseInt(totalPages) > 10) {
+      return (
+        <Pagination>
+          <Pagination.Prev onClick={handlePrevPage} />
+            <Fragment>
+              <CustomPagination />
+            </Fragment>
+          <Pagination.Next onClick={handleNextPage} />
+        </Pagination>
+      );
+    } else {
+      return(
+        <div></div>
+      )
+    }
+
   }
 
 export default PaginationCustom;

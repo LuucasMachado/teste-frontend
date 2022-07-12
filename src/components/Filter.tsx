@@ -16,7 +16,7 @@ interface Props {
     
     const handleClear = () => {
       setSearchValue('');
-      getPosts('');
+      getPosts('', 1);
     }
     
     interface ISelectedViewOption {
