@@ -56,6 +56,22 @@ function App() {
     getPosts(searchValue, prevPage);
   }
 
+  function CustomPagination() {
+    let qtdPages = parseInt(totalPages) / 10;
+    let pageNumbers = [];
+    for(var i = 0; i < qtdPages; i++) {
+      if(page === i) {
+        pageNumbers.push(<Pagination.Item active>{page}</Pagination.Item>);
+      } else if(i < page) {
+        pageNumbers.push(<Pagination.Item onClick={handlePrevPage}>{i}</Pagination.Item>);
+      } else {
+        pageNumbers.push(<Pagination.Item onClick={handleNextPage}>{i}</Pagination.Item>);
+      }
+    }
+    return pageNumbers;
+  }
+  
+
   return (
     <div className='App'>
       <NavBar /> 
@@ -71,18 +87,11 @@ function App() {
                 />
               <PostView />
 
-              {/* <Pagination
-                totalPages={totalPages}
-                currentPage={page}
-                handlePrevPage={handlePrevPage}
-                handleNextPage={handleNextPage}
-              /> */}
               <div className="d-flex justify-content-between">
                 <TotalPage totalPages={totalPages} />
                 <Pagination>
                   <Pagination.Prev onClick={handlePrevPage} />
-                  <Pagination.Item active>{page}</Pagination.Item>
-                  <Pagination.Item onClick={handleNextPage}>{page + 1}</Pagination.Item>
+                    <CustomPagination />
                   <Pagination.Next onClick={handleNextPage} />
                 </Pagination>
               </div>
