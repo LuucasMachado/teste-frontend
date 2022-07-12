@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect } from 'react';
 
 interface TotalPageProps {
-  totalPages: number;
+  totalPages: string;
 };
 
 

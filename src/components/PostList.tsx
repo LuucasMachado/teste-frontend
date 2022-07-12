@@ -19,11 +19,11 @@ interface IPosts {
   map: any;
 }
 
-interface UserListProps {
+interface PostListProps {
     items: Array<IPosts>
 };
 
-const UserList: React.FC<UserListProps> = ({items}) => {
+const PostList: React.FC<PostListProps> = ({items}) => {
     return (
         <Fragment>
             <Table className='text-center'>
@@ -38,7 +38,7 @@ const UserList: React.FC<UserListProps> = ({items}) => {
               </thead>
               <tbody className='border-0'>
                   {items.map((post:any, index:any) => (
-                  <tr key={post} className='border'>
+                  <tr key={post.id} className='border'>
                     <td className='p-2 align-middle'>
                       <span>{post.id}</span>
                     </td>
@@ -56,4 +56,4 @@ const UserList: React.FC<UserListProps> = ({items}) => {
     );
 };
 
-export default UserList;
+export default PostList;
