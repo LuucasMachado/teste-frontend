@@ -22,7 +22,7 @@ interface IPosts {
 
 interface PostCardProps {
     items: Array<IPosts>;
-};
+}
 
 
 

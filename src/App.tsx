@@ -14,9 +14,9 @@ import './App.scss';
 
 function App() {
 
-  var [posts, setPostList] = useState<[]>([]);
-  var [searchValue, setSearchValue] = useState('');
-  var [typeList, setTypeList] = useState('ListView');
+  const [posts, setPostList] = useState<[]>([]);
+  const [searchValue, setSearchValue] = useState('');
+  const [typeList, setTypeList] = useState('ListView');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState('0');
 
@@ -25,7 +25,7 @@ function App() {
     setPage(page)
     PostService.getApiData(searchValue, page)
       .then((response) => {
-        let total_page = response.headers.get('x-total-count') || '0';
+        const total_page = response.headers.get('x-total-count') || '0';
         setTotalPages(total_page)
         response.json().then(data => {
           setPostList(data);

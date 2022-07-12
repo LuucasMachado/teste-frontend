@@ -2,7 +2,7 @@ import React, {Fragment, useEffect } from 'react';
 
 interface TotalPageProps {
   totalPages: string;
-};
+}
 
 
 

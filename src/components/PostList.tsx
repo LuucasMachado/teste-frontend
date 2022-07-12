@@ -21,7 +21,7 @@ interface IPosts {
 
 interface PostListProps {
     items: Array<IPosts>
-};
+}
 
 const PostList: React.FC<PostListProps> = ({items}) => {
     return (

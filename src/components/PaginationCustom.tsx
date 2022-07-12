@@ -12,20 +12,20 @@ interface Props {
 
   const PaginationCustom: React.FC<Props> = ( {page, getPosts, searchValue, totalPages }) => {
     function handleNextPage() {
-      var nextPage = page + 1;
+      const nextPage = page + 1;
       getPosts(searchValue, nextPage);
     }
   
     function handlePrevPage() {
       if(page === 1) { return true }
-      var prevPage = page - 1;
+      const prevPage = page - 1;
       getPosts(searchValue, prevPage);
     }
 
     const CustomPagination: Function = (): JSX.Element[] => {
-      let qtdPages = parseInt(totalPages) / 10;
-      let pageNumbers = [];
-      for(var i = 1; i < qtdPages; i++) {
+      const qtdPages = parseInt(totalPages) / 10;
+      const pageNumbers = [];
+      for(let i = 1; i < qtdPages; i++) {
         if(page === i) {
           pageNumbers.push(<Fragment><Pagination.Item active>{page}</Pagination.Item></Fragment>);
         } else if(i < page) {
